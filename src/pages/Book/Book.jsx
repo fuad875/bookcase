@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { FaStarHalfAlt } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const Book = ({ singleBook }) => {
     // const data = use(bookPromise)
@@ -7,11 +8,12 @@ const Book = ({ singleBook }) => {
 
     // console.log(singleBook);
 
-    const {bookName,author,image,rating,category,tags,yearOfPublishing,publisher} =singleBook
+    const {bookName,author,bookId,image,rating,category,tags,yearOfPublishing,publisher} =singleBook
     return (
-        <div className="card bg-base-100 w-96 shadow-sm border p-6 shadow">
+       <Link to={`/bookDetails/${bookId}`}>
+         <div className="card bg-base-100 w-94 shadow-sm border p-4 shadow">
             <figure className='p-4 bg-gray-200 w-2/3 mx-auto'>
-                <img className='h-[166px] object-cover hover:scale-100 transition-all hover:-rotate-2 duration-100'
+                <img className='h-[160px] object-cover hover:scale-100 transition-all hover:-rotate-2 duration-100'
                     src={image}
                     alt="Shoes" />
             </figure>
@@ -34,6 +36,7 @@ const Book = ({ singleBook }) => {
                 </div>
             </div>
         </div>
+       </Link>
     );
 };
 
